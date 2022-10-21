@@ -16,16 +16,17 @@ const Login = () => {
 
   return (
     <div
-      className="container-fluid d-sm-flex justify-content-sm-between br"
-      style={{ height: "100vh" }}
+      className="container-fluid d-sm-flex justify-content-sm-between"
+      style={{ height: "90vh" }}
     >
       <img
-        style={{ width: "500px", maxWidth: "100%" }}
+        alt="people loading a bus"
+        style={{ width: "450px", maxWidth: "100%" }}
         className="img-fluid align-self-sm-center flex-fill"
         src="https://res.cloudinary.com/dogmqg8to/image/upload/v1666362327/bus%20booking%20Web%20Application/8493_tnwt3p.jpg"
       />
 
-      <div className="row flex-fill br">
+      <div className="row flex-fill">
         <Button
           onClick={showSignin}
           text="Sign in"
