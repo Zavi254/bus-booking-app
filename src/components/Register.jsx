@@ -5,12 +5,12 @@ const Register = () => {
   const inputStyles = {
     boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     borderRadius: "10px",
-    margin:"auto"
+    margin:"auto",
   };
 
   return (
     <form>
-      <div className="mb-4 mt-3">
+      <div className="mb-4">
         <input
           style={inputStyles}
           type="email"
@@ -26,7 +26,7 @@ const Register = () => {
           placeholder="Enter password"
         />
       </div>
-      <Button classN="btn btn-primary signRegisterBtn mb-4" text="Register" />
+      <Button classN="btn btn-primary barlowFont signRegisterBtn mb-4" text="Register" />
     </form>
   );
 };

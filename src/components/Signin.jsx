@@ -11,18 +11,18 @@ const Signin = () => {
   const iconStyles = {
     boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
     borderRadius: "10px",
-    padding: "2px 25px",
+    padding: "2px 20px",
     cursor: "pointer",
     border: "1px solid #DDDFDD",
   };
 
   return (
     <form>
-      <div className="mb-4 mt-3">
+      <div className="mb-4">
         <input
           style={inputStyles}
           type="email"
-          className="form-control p-3"
+          className="form-control p-3 mb-4"
           placeholder="Enter email"
         />
       </div>
