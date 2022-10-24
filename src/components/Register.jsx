@@ -9,7 +9,7 @@ const Register = () => {
   };
 
   return (
-    <form>
+    <form className="form">
       <div className="mb-4">
         <input
           style={inputStyles}
