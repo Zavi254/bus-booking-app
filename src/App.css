@@ -18,6 +18,30 @@
   box-shadow: 0px 12px 21px 4px rgba(68, 97, 242, 0.15);
 }
 
+.close-button {
+  font-weight: bold;
+  font-size: 1.8rem;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+
+
+@media only screen and (max-width: 576px) {
+  ul>li {
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.5rem;
+  }
+
+  .mobileNavbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 @media only screen and (min-width: 576px) {
   form>div {
     width: 70%;
@@ -27,5 +51,9 @@
   .signRegisterBtn {
     width: 40%;
     margin-left: 200px;
+  }
+  ul>li {
+    text-align: center;
+    padding-right: 50px;
   }
 }
