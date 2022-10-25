@@ -2,6 +2,12 @@
   font-size: 1.8rem;
   margin-right: 20px;
 }
+/* .br{
+  border: 2px solid red;
+} */
+.offerCards{
+  margin-top: -50px;
+}
 
 .buttonLinks {
   text-decoration: none;
@@ -47,6 +53,9 @@
 
 /* Mobile Devices */
 @media only screen and (max-width: 576px) {
+  .offerCards{
+    margin-top: -250px;
+  }
   .searchbtn{
     margin-left: 40px;
     margin-top: 15px;
