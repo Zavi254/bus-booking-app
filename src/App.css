@@ -3,6 +3,13 @@
   margin-right: 20px;
 }
 
+/* .br{
+  border: 2px solid red;
+} */
+.offerCards {
+  margin-top: -50px;
+}
+
 .buttonLinks {
   text-decoration: none;
   font-family: 'Abhaya Libre', serif;
@@ -38,7 +45,8 @@
   background-size: cover;
   background-attachment: fixed;
 }
-.pleaseCall{
+
+.pleaseCall {
   width: 30%;
   margin: auto;
   position: relative;
@@ -47,10 +55,16 @@
 
 /* Mobile Devices */
 @media only screen and (max-width: 576px) {
-  .searchbtn{
+  .offerCards {
+    margin-top: -250px;
+    padding-bottom: 10px;
+  }
+
+  .searchbtn {
     margin-left: 40px;
     margin-top: 15px;
   }
+
   ul>li {
     margin-bottom: 20px;
     text-align: center;
@@ -86,10 +100,11 @@
     padding: 17px;
     margin-bottom: 10px;
   }
-  .pleaseCall{
+
+  .pleaseCall {
     width: 80%;
     position: relative;
-    bottom: 310px;
+    bottom: 290px;
     margin: auto;
   }
 }
