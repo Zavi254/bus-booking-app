@@ -1,4 +1,5 @@
 import React from "react";
+import AboutUsSection from "../components/AboutUsSection";
 import HomeImage from "../components/HomeImage";
 import Navbar from "../components/Navbar";
 import OfferCardSection from "../components/OfferCardSection";
@@ -13,6 +14,7 @@ const Homepage = () => {
       <Search />
       <PleaseCall />
       <OfferCardSection />
+      <AboutUsSection />
     </div>
   );
 };
