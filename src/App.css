@@ -1,5 +1,6 @@
-.br {
-  border: 2px solid red;
+.phoneIcon {
+  font-size: 1.8rem;
+  margin-right: 20px;
 }
 
 .buttonLinks {
@@ -18,6 +19,10 @@
   box-shadow: 0px 12px 21px 4px rgba(68, 97, 242, 0.15);
 }
 
+.searchInputs {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
 .close-button {
   font-weight: bold;
   font-size: 1.8rem;
@@ -26,8 +31,26 @@
   top: 14px;
 }
 
+.busImage {
+  height: 90vh;
+  background-image: url(https://res.cloudinary.com/dogmqg8to/image/upload/v1666650480/bus%20booking%20Web%20Application/homepageBus_aerher.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.pleaseCall{
+  width: 30%;
+  margin: auto;
+  position: relative;
+  bottom: 150px;
+}
 
+/* Mobile Devices */
 @media only screen and (max-width: 576px) {
+  .searchbtn{
+    margin-left: 40px;
+    margin-top: 15px;
+  }
   ul>li {
     margin-bottom: 20px;
     text-align: center;
@@ -40,10 +63,47 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .busImage {
+    width: 100%;
+    max-width: 100%;
+    height: 50vh;
+    max-height: 100%;
+  }
+
+  .searchForm {
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    background: #FFFFFF;
+    position: relative;
+    bottom: 330px;
+  }
+
+  .searchInputs {
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    padding: 17px;
+    margin-bottom: 10px;
+  }
+  .pleaseCall{
+    width: 80%;
+    position: relative;
+    bottom: 310px;
+    margin: auto;
+  }
 }
 
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width:991px) {
+  .searchForm {
+    border: 2px solid red;
+  }
+}
+
+/* Desktop Devices */
 @media only screen and (min-width: 576px) {
-  form>div {
+  .form>div {
     width: 70%;
     margin: auto;
   }
@@ -52,8 +112,26 @@
     width: 40%;
     margin-left: 200px;
   }
+
   ul>li {
     text-align: center;
     padding-right: 50px;
   }
+
+  .searchInputs {
+    padding: 10px;
+    width: 40%;
+    margin-right: 80px;
+  }
+
+  .searchForm {
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    background: #FFFFFF;
+    position: relative;
+    bottom: 310px;
+  }
+
 }

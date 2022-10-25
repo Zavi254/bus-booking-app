@@ -5,7 +5,7 @@ import { FaBars } from "react-icons/fa";
 const Navbar = () => {
   return (
     <nav
-      className="navbar navbar-expand-sm justify-content-between"
+      className="navbar navbar-expand-sm justify-content-between fixed-top"
       style={{
         backgroundColor: "#F20C0C",
         fontFamily: "Montserrat', sans-serif",
@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <Link to="about" className="nav-link text-white">
-              OFFERS
+              BUSES
             </Link>
           </li>
           <li className="nav-item">
