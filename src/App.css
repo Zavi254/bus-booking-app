@@ -1,5 +1,6 @@
-.br {
-  border: 2px solid red;
+.phoneIcon {
+  font-size: 1.8rem;
+  margin-right: 20px;
 }
 
 .buttonLinks {
@@ -35,10 +36,21 @@
   background-image: url(https://res.cloudinary.com/dogmqg8to/image/upload/v1666650480/bus%20booking%20Web%20Application/homepageBus_aerher.jpg);
   background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
+}
+.pleaseCall{
+  width: 30%;
+  margin: auto;
+  position: relative;
+  bottom: 150px;
 }
 
 /* Mobile Devices */
 @media only screen and (max-width: 576px) {
+  .searchbtn{
+    margin-left: 40px;
+    margin-top: 15px;
+  }
   ul>li {
     margin-bottom: 20px;
     text-align: center;
@@ -74,11 +86,17 @@
     padding: 17px;
     margin-bottom: 10px;
   }
+  .pleaseCall{
+    width: 80%;
+    position: relative;
+    bottom: 310px;
+    margin: auto;
+  }
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width:991px) {
-  .searchForm{
+  .searchForm {
     border: 2px solid red;
   }
 }
@@ -117,5 +135,3 @@
   }
 
 }
-
-

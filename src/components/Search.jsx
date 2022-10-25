@@ -30,7 +30,7 @@ const Search = () => {
         value={date}
         onChange={(event) => setDate(event.target.value)}
       />
-      <Button variant="danger" style={{ backgroundColor: "#F20C0C", width:"200px" }}>
+      <Button className="searchbtn" variant="danger" style={{ backgroundColor: "#F20C0C", width:"200px" }}>
         Search
       </Button>
     </form>

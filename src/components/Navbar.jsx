@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <Link to="about" className="nav-link text-white">
-              OFFERS
+              BUSES
             </Link>
           </li>
           <li className="nav-item">
