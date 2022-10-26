@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalCard from "./ModalCard";
 import { FaBus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [date, setDate] = useState("");
@@ -71,13 +72,14 @@ const Search = () => {
       </button>
       <ModalCard
         content={availableBuses.map((bus) => (
-          <div className="d-flex">
-            <FaBus />
+          <div key={bus.id} className="d-flex">
+            <FaBus style={{ fontSize: "2rem" }} />
             <p style={{ marginLeft: "10px" }}>
               From:{bus.from} to: {bus.to}
             </p>
             <p>Departure Time: {bus.travel_time}</p>
             <p>Available Seats: {bus.no_of_seats}</p>
+            <Link to="/login">Book Now</Link>
           </div>
         ))}
       />
