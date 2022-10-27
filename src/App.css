@@ -2,14 +2,22 @@
   font-size: 1.8rem;
   margin-right: 20px;
 }
-/* .br{
+.br{
   border: 2px solid red;
-} */
+}
 
 .bookBtn{
   width: 100px;
   height: 50px;
+  text-decoration: none;
+  color: #FFFFFF;
+  border-radius: 7px;
+  text-align: center;
 }
+.bookBtn:hover{
+  color: #FFFFFF;
+}
+
 .offerCards {
   margin-top: -50px;
 }

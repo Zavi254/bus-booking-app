@@ -2,7 +2,7 @@ import { useState } from "react";
 import Register from "../components/Register";
 import Signin from "../components/Signin";
 
-const Login = () => {
+const Login = ({ userLogin }) => {
   const [show, setShow] = useState(true);
 
   const showSignin = () => {
@@ -26,7 +26,11 @@ const Login = () => {
       />
 
       <div className="row flex-fill">
-        {show ? <Signin showRegister={showRegister} /> : <Register showSignin={showSignin} />}
+        {show ? (
+          <Signin showRegister={showRegister} Login={userLogin} />
+        ) : (
+          <Register showSignin={showSignin} />
+        )}
       </div>
     </div>
   );
