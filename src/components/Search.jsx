@@ -3,11 +3,14 @@ import ModalCard from "./ModalCard";
 import { FaBus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const Search = () => {
   const [date, setDate] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [buses, setBuses] = useState([]);
+
+  
 
   useEffect(() => {
     fetch("https://bus-booking-web-api.herokuapp.com/buses/")
@@ -25,6 +28,8 @@ const Search = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    
   }
 
   return (
@@ -79,10 +84,13 @@ const Search = () => {
             </p>
             <p>Departure Time: {bus.travel_time}</p>
             <p>Available Seats: {bus.no_of_seats}</p>
-            <Link to="/login">Book Now</Link>
+            <Link to="/login" className="bookBtn bg-danger">
+              View Seats
+            </Link>
           </div>
         ))}
       />
+      {/* <SelectBus  /> */}
     </form>
   );
 };

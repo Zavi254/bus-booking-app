@@ -3,7 +3,7 @@ import React from "react";
 const OfferCard = ({ imageLink }) => {
   return (
     <div
-      className="card mx-auto mb-5 br p-5"
+      className="card mx-auto mb-5 p-5"
       style={{ width: "350px", borderRadius: "7px" }}
     >
       <img src={imageLink} alt="bus offers" style={{ borderRadius: "12px" }} />

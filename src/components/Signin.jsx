@@ -1,26 +1,69 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
-const Signin = ({ showRegister }) => {
+const Signin = ({ showRegister, Login }) => {
   const inputStyles = {
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "10px",
+    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.20)",
+    borderRadius: "7px",
     margin: "auto",
   };
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [name, setName] = useState("");
+  // const [errors, setErrors] = useState([]);
 
-  function showLog(e) {
+  const userLogin = {
+    email,
+    password,
+    role,
+    name,
+  };
+
+  function handleSubmit(e) {
     e.preventDefault();
-    alert(password);
+    fetch("https://bus-booking-web-api.herokuapp.com/login", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userLogin),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => Login(user));
+      }
+      if (role === "customer") {
+        navigate("/seats");
+      } else if (role === "driver") {
+        navigate("/home");
+      }
+    });
+    setEmail("");
+    setPassword("");
+    setRole("");
+    setName("");
   }
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
       <h2 className="text-center">Welcome to Bus Booking</h2>
       <p className="text-center">Sign in to your account</p>
+      <div className="mb-4">
+        <input
+          required
+          style={inputStyles}
+          type="text"
+          className="form-control p-3"
+          placeholder="Enter Username"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
       <div className="mb-4">
         <input
           required
@@ -32,7 +75,7 @@ const Signin = ({ showRegister }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="mb-5">
+      <div className="mb-3">
         <input
           style={inputStyles}
           type="password"
@@ -42,7 +85,7 @@ const Signin = ({ showRegister }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div className="mb-5">
+      <div className="mb-3">
         <select
           className="form-select p-3"
           style={inputStyles}
@@ -56,7 +99,7 @@ const Signin = ({ showRegister }) => {
         </select>
       </div>
       <Button
-        onClick={showLog}
+        onClick={handleSubmit}
         classN="btn btn-danger signRegisterBtn mb-4"
         text="Login"
       />
