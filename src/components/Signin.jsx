@@ -39,8 +39,6 @@ const Signin = ({ showRegister, Login }) => {
       }
       if (role === "customer") {
         navigate("/seats");
-      } else if (role === "driver") {
-        navigate("/home");
       }
     });
     setEmail("");
