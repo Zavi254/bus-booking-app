@@ -3,6 +3,7 @@ import Essentials from "../components/Essentials";
 import Navbar from "../components/Navbar";
 import { MdChair } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import Destination from "../components/Destination";
 
 const SelectBus = () => {
   const { id } = useParams();
@@ -16,11 +17,11 @@ const SelectBus = () => {
       .then((response) => response.json())
       .then((data) => setBus(data));
   }, []);
-  console.log(bus.seats);
+  console.log(bus);
   return (
     <div>
       <Navbar />
-      <Essentials />
+      <Destination from={bus.from} to={bus.to} />
       <div className="d-flex justify-content-between mt-3">
         <div>
           <MdChair style={iconStyle} />

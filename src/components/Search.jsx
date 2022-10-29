@@ -40,8 +40,8 @@ const Search = () => {
           onChange={(e) => setFrom(e.target.value)}
         >
           <option style={fontGreyColor}>From</option>
-          <option value="Mombasa">Mombasa</option>
-          <option value="Nairobi">Nairobi</option>
+          <option value="mombasa">Mombasa</option>
+          <option value="nairobi">Nairobi</option>
           <option value="Kisumu">Kisumu</option>
           <option value="Isiolo">Isiolo</option>
           <option value="Machakos">Machakos</option>
@@ -54,8 +54,8 @@ const Search = () => {
           <option>To</option>
           <option value="Nakuru">Nakuru</option>
           <option value="Isiolo">Isiolo</option>
-          <option value="Mombasa">Mombasa</option>
-          <option value="Nairobi">Nairobi</option>
+          <option value="mombasa">Mombasa</option>
+          <option value="nairobi">Nairobi</option>
           <option value="Machakos">Machakos</option>
         </select>
         <input
