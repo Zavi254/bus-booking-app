@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="login" element={<Login userLogin={handleLogin} />} />
-        <Route path="seats" element={<SelectBus />} />
+        <Route path="/buses/:id" element={<SelectBus />} />
         <Route path="home" element={<Homepage />} />
       </Routes>
     </BrowserRouter>

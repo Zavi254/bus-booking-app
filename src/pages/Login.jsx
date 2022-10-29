@@ -2,8 +2,16 @@ import { useState } from "react";
 import Register from "../components/Register";
 import Signin from "../components/Signin";
 
-const Login = ({ userLogin }) => {
+const Login = ({ userLogin, login }) => {
   const [show, setShow] = useState(true);
+
+  // useEffect(() => {
+  //   fetch("https://bus-booking-web-api.herokuapp.com/me").then((response) => {
+  //     if (response.ok) {
+  //       response.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
 
   const showSignin = () => {
     setShow(true);
@@ -32,6 +40,7 @@ const Login = ({ userLogin }) => {
           <Register showSignin={showSignin} />
         )}
       </div>
+      <h2>{login}</h2>
     </div>
   );
 };
