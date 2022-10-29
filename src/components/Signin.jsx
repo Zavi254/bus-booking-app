@@ -15,7 +15,6 @@ const Signin = ({ showRegister, Login }) => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
-  // const [errors, setErrors] = useState([]);
 
   const userLogin = {
     email,
