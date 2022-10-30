@@ -7,11 +7,11 @@ const BusDetails = ({ from, to, time, numberPlate, cost, seats }) => {
     fontWeight: "bold",
     backgroundColor: "#FFFFFF",
     boxShadow: "0px 4px 14px rgba(0, 0, 0, 0.1)",
-    textAlign:"center"
+    textAlign: "center",
   };
   const fontColor = {
-    color:"#FFA500"
-  }
+    color: "#FFA500",
+  };
 
   return (
     <div

@@ -71,7 +71,7 @@ const Register = ({ showSignin }) => {
       </div>
       <div className="mb-3">
         <select
-          value={role}
+          value={role.toLowerCase()}
           onChange={(e) => setRole(e.target.value)}
           className="form-select p-3"
           style={inputStyles}

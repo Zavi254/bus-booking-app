@@ -40,11 +40,11 @@ const Search = () => {
           onChange={(e) => setFrom(e.target.value)}
         >
           <option style={fontGreyColor}>From</option>
-          <option value="mombasa">Mombasa</option>
-          <option value="nairobi">Nairobi</option>
-          <option value="Kisumu">Kisumu</option>
-          <option value="Isiolo">Isiolo</option>
-          <option value="Machakos">Machakos</option>
+          <option value="MOMBASA">MOMBASA</option>
+          <option value="NAIROBI">NAIROBI</option>
+          <option value="KISUMU">KISUMU</option>
+          <option value="ISIOLO">ISIOLO</option>
+          <option value="MACHAKOS">MACHAKOS</option>
         </select>
         <select
           className="form-select searchInputs"
@@ -52,11 +52,11 @@ const Search = () => {
           onChange={(e) => setTo(e.target.value)}
         >
           <option>To</option>
-          <option value="Nakuru">Nakuru</option>
-          <option value="Isiolo">Isiolo</option>
-          <option value="mombasa">Mombasa</option>
-          <option value="nairobi">Nairobi</option>
-          <option value="Machakos">Machakos</option>
+          <option value="NAKURU">NAKURU</option>
+          <option value="ISIOLO">ISIOLO</option>
+          <option value="MOMBASA">MOMBASA</option>
+          <option value="NAIROBI">NAIROBI</option>
+          <option value="MACHAKOS">MACHAKOS</option>
         </select>
         <input
           className="form-control searchInputs"

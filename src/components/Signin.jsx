@@ -86,7 +86,7 @@ const Signin = ({ showRegister, Login }) => {
         <select
           className="form-select p-3"
           style={inputStyles}
-          value={role}
+          value={role.toLowerCase()}
           onChange={(e) => setRole(e.target.value)}
         >
           <option>Enter your role</option>
