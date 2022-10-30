@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { MdChair } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Destination from "../components/Destination";
+import BusDetails from "../components/BusDetails";
 
 const SelectBus = () => {
   const { id } = useParams();
@@ -22,6 +23,14 @@ const SelectBus = () => {
     <div>
       <Navbar />
       <Destination from={bus.from} to={bus.to} />
+      <BusDetails
+        from={bus.from}
+        to={bus.to}
+        time={bus.travel_time}
+        cost={bus.cost_per_seat}
+        numberPlate={bus.plate_number}
+        seats={bus.no_of_seats}
+      />
       <div className="d-flex justify-content-between mt-3">
         <div>
           <MdChair style={iconStyle} />
