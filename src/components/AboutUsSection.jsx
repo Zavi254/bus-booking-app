@@ -5,7 +5,7 @@ const AboutUsSection = () => {
   const content =
     "We give you the wildest number of travel options across thousands of routes.";
   return (
-    <div style={{ paddingTop: "50px" }}>
+    <div className="aboutUs" style={{ paddingTop: "50px" }}>
       <h2 className="text-center">You can build easily</h2>
       <p className="text-center">
         We give you the wildest number of travel options across thousands of
@@ -31,7 +31,7 @@ const AboutUsSection = () => {
           title="Live Track Your Journey"
           content={content}
           imageLink={
-            "https://res.cloudinary.com/dogmqg8to/image/upload/v1666661208/bus%20booking%20Web%20Application/13994210_5405632_sbst8j.jpg"
+            "https://res.cloudinary.com/dogmqg8to/image/upload/v1666903966/bus%20booking%20Web%20Application/11667582_20945440_caimcq.jpg"
           }
         />
       </div>

@@ -1,58 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
-const Signin = () => {
+const Signin = ({ showRegister, Login }) => {
   const inputStyles = {
-    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    borderRadius: "10px",
+    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.20)",
+    borderRadius: "7px",
     margin: "auto",
   };
 
-  const iconStyles = {
-    boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
-    borderRadius: "10px",
-    padding: "2px 20px",
-    cursor: "pointer",
-    border: "1px solid #DDDFDD",
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+  const [name, setName] = useState("");
+
+  const userLogin = {
+    email,
+    password,
+    role,
+    name,
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("https://bus-booking-web-api.herokuapp.com/login", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userLogin),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("role", data.role);
+      });
+    setEmail("");
+    setPassword("");
+    setRole("");
+    setName("");
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleSubmit}>
+      <h2 className="text-center">Welcome to Bus Booking</h2>
+      <p className="text-center">Sign in to your account</p>
       <div className="mb-4">
         <input
+          required
           style={inputStyles}
           type="email"
-          className="form-control p-3 mb-4"
+          className="form-control p-3"
           placeholder="Enter email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="mb-5">
+      <div className="mb-3">
         <input
           style={inputStyles}
           type="password"
           className="form-control p-3"
           placeholder="Enter password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <Button classN="btn btn-danger signRegisterBtn mb-4" text="Sign in" />
-      <p style={{ color: "#ACADAC", textAlign: "center" }}>Or continue with</p>
-      <div className="d-flex justify-content-around">
-        <img
-        alt="google vector"
-          style={iconStyles}
-          src="https://img.icons8.com/color/48/000000/google-logo.png"
-        />
-        <img
-        alt="facebook vector"
-          style={iconStyles}
-          src="https://img.icons8.com/color/48/000000/facebook-new.png"
-        />
-        <img
-        alt="mac os vector"
-          style={iconStyles}
-          src="https://img.icons8.com/ios-filled/50/000000/mac-os.png"
-        />
+      <div className="mb-3">
+        <select
+          className="form-select p-3"
+          style={inputStyles}
+          value={role.toLowerCase()}
+          onChange={(e) => setRole(e.target.value)}
+        >
+          <option>Enter your role</option>
+          <option value="customer">Customer</option>
+          <option value="driver">Driver</option>
+          {/* <option value="admin">Admin</option> */}
+        </select>
       </div>
+      <Button
+        onClick={handleSubmit}
+        classN="btn btn-danger signRegisterBtn mb-4"
+        text="Login"
+      />
+      <p style={{ color: "#ACADAC", textAlign: "center" }}>
+        Don't have any Account?
+        <span>
+          <button
+            onClick={showRegister}
+            className="btn btn-link"
+            style={{ textDecoration: "none" }}
+          >
+            Register
+          </button>
+        </span>
+      </p>
     </form>
   );
 };
