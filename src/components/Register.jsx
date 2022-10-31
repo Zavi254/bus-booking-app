@@ -1,7 +1,10 @@
 import Button from "./Button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ showSignin }) => {
+  const navigate = useNavigate();
+
   const inputStyles = {
     boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.20)",
     borderRadius: "7px",
@@ -10,18 +13,20 @@ const Register = ({ showSignin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [name, setName] = useState("");
 
   const user = {
+    name,
     email,
     password,
     role,
-    name,
+    telephone,
   };
 
   function handleRegister(e) {
     e.preventDefault();
-    fetch("https://bus-booking-web-api.herokuapp.com/customers", {
+    fetch(`https://bus-booking-web-api.herokuapp.com/${role}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,6 +38,9 @@ const Register = ({ showSignin }) => {
       }
     });
     alert(`You have successfully registered your Account ${user.name}`);
+    if (role === "customers") {
+      navigate("/buses")
+    }
   }
 
   return (
@@ -44,9 +52,19 @@ const Register = ({ showSignin }) => {
           style={inputStyles}
           type="text"
           className="form-control p-3"
-          placeholder="Enter Username"
+          placeholder="Enter Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div className="mb-4">
+        <input
+          style={inputStyles}
+          type="number"
+          className="form-control p-3"
+          placeholder="Enter Phone Number"
+          value={telephone}
+          onChange={(e) => setTelephone(e.target.value)}
         />
       </div>
       <div className="mb-4">
@@ -77,8 +95,8 @@ const Register = ({ showSignin }) => {
           style={inputStyles}
         >
           <option>Enter your role</option>
-          <option value="customer">Customer</option>
-          <option value="driver">Driver</option>
+          <option value="customers">Customer</option>
+          <option value="drivers">Driver</option>
           {/* <option value="admin">Admin</option> */}
         </select>
       </div>

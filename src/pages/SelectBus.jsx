@@ -11,6 +11,8 @@ const SelectBus = () => {
   const { id } = useParams();
   const [bus, setBus] = useState({});
   const [seats, setSeats] = useState([]);
+  const [price, setPrice] = useState(0)
+  const [selected, setSelected] = useState(0)
   const iconStyle = {
     fontSize: "2.5rem",
   };
@@ -52,7 +54,7 @@ const SelectBus = () => {
       <div>
         <Seats seats={seats} />
       </div>
-      <BookNow />
+      <BookNow price={price} selected={selected} />
     </div>
   );
 };

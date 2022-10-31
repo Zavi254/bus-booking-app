@@ -32,14 +32,13 @@ const Signin = ({ showRegister, Login }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userLogin),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => Login(user));
-      }
-      if (role === "customer") {
-        navigate("/seats");
-      }
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("role", data.role);
+      });
     setEmail("");
     setPassword("");
     setRole("");
@@ -50,17 +49,6 @@ const Signin = ({ showRegister, Login }) => {
     <form className="form" onSubmit={handleSubmit}>
       <h2 className="text-center">Welcome to Bus Booking</h2>
       <p className="text-center">Sign in to your account</p>
-      <div className="mb-4">
-        <input
-          required
-          style={inputStyles}
-          type="text"
-          className="form-control p-3"
-          placeholder="Enter Username"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
       <div className="mb-4">
         <input
           required
