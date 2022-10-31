@@ -1,8 +1,9 @@
 import React from "react";
 import BusDetails from "../components/BusDetails";
 import BusList from "../components/Buslist";
-import Addbus from "../components/Addbus";
+import AddBus from "../components/AddBus";
 import Navbar from "../components/Navbar";
+import Destination from "../components/Destination";
 
 
 
@@ -11,10 +12,11 @@ const Driver = () => {
       <div>
         
         <Navbar />
-        <Addbus />
+        <Destination/>
+        <AddBus />
         <BusDetails />
         <BusList />
-        <Driver />
+       
         
         
       </div>

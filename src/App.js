@@ -4,6 +4,7 @@ import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
 import Landingpage from "./pages/Landingpage";
 import SelectBus from "./pages/SelectBus";
+import Driver from "./pages/Driver";
 
 function App() {
   function handleLogin() {
@@ -12,6 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/" element={<Driver />} />
         <Route path="/" element={<Landingpage />} />
         <Route path="login" element={<Login userLogin={handleLogin} />} />
         <Route path="/buses/:id" element={<SelectBus />} />
