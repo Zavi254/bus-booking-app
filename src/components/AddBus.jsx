@@ -70,32 +70,32 @@ const AddBus = () => {
   //   setAvailability(event.target.value);
   // };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("https://bus-booking-web-api.herokuapp.com/buses/${id}`", {
-      method: "POST",
-      body: JSON.stringify({
-        driver_id: driver_id,
-        plateNumber: plateNumber,
-        availability: availablity,
-        cost: cost,
-        capacity: capacity,
-        date: date,
-        time: time,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    alert("Bus Added Successfully");
-    setDriver_id("");
-    setPlateNumber("");
-    setAvailability("");
-    setCost("");
-    setCapacity("");
-    setDate("");
-    setTime("");
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   fetch("https://localhost3000/buses`", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       driver_id: driver_id,
+  //       plateNumber: plateNumber,
+  //       availability: availablity,
+  //       cost: cost,
+  //       capacity: capacity,
+  //       date: date,
+  //       time: time,
+  //     }),
+  //     headers: {
+  //       "Content-type": "application/json; charset=UTF-8",
+  //     },
+  //   });
+  //   alert("Bus Added Successfully");
+  //   setDriver_id("");
+  //   setPlateNumber("");
+  //   setAvailability("");
+  //   setCost("");
+  //   setCapacity("");
+  //   setDate("");
+  //   setTime("");
+  // }
 
   return (
          <div className="adds">
@@ -126,13 +126,8 @@ const AddBus = () => {
           </form>
         </div>
       );
-    // }
+     }
      
-  
 
 
-
-
-
-}
 export default AddBus;
