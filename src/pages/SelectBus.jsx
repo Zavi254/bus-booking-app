@@ -10,6 +10,7 @@ import BookNow from "../components/BookNow";
 const SelectBus = () => {
   const { id } = useParams();
   const [bus, setBus] = useState({});
+
   const [seats, setSeats] = useState([]);
   const [price, setPrice] = useState(0);
   const [selected, setSelected] = useState(0);
@@ -24,20 +25,31 @@ const SelectBus = () => {
         setBus(bus);
         setSeats(bus.seats);
       });
-  }, []);
+  }, [id]);
 
   const handleLogOut = () => {
     fetch("https://bus-booking-web-api.herokuapp.com/logout", {
-      method: "DELETE"
+      method: "DELETE",
     });
+    alert("Logged out");
   };
 
   // console.log(seats);
 
   const onBooking = (bookedSeat) => {
-    let filtered = seats.filter((seat) => seat.id !== bookedSeat.id);
-    let newState = [...filtered, bookedSeat];
-    setSeats(newState);
+    // let filtered = seats.filter((seat) => seat.id !== bookedSeat.id);
+    // let newState = [...filtered, bookedSeat].sort();
+    // setSeats(newState);
+    // console.log(newState);
+    let array = seats.map((seat) => {
+      if (seat.id === bookedSeat.id) {
+        return bookedSeat;
+      } else {
+        return seat;
+      }
+    });
+    setSeats(array);
+    console.log(array);
   };
 
   const totalBus = seats.filter((seat) => seat.is_booked === false);
@@ -52,7 +64,11 @@ const SelectBus = () => {
         time={bus.travel_time}
         cost={bus.cost_per_seat}
         numberPlate={bus.plate_number}
-        seats={totalBus.length}
+        seats={
+          totalBus.length === 0
+            ? "Fully Booked "
+            : `${totalBus.length} Seats Available`
+        }
       />
       <div className="d-flex justify-content-between mt-5">
         <div>

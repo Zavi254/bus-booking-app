@@ -31,7 +31,7 @@ const BusDetails = ({ from, to, time, numberPlate, cost, seats }) => {
         <div>{numberPlate}</div>
       </div>
       <div>KES {cost}</div>
-      <div style={fontColor}>{seats} Seats Available</div>
+      <div style={fontColor}>{seats}</div>
     </div>
   );
 };
