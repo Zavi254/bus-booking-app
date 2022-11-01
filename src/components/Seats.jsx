@@ -1,17 +1,41 @@
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-const Seats = ({ seats }) => {
+const Seats = ({ seats, onBooking, busId }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    const id = e.target.id;
-    fetch(`https://bus-booking-web-api.herokuapp.com/seats/${id},`, {
+    const seatNo = parseInt(e.target.textContent);
+    const id = parseInt(e.target.id);
+    const bookingData = {
+      customer_id: 2,
+      seat_no: seatNo,
+      bus_id: parseInt(busId),
+    };
+
+    fetch("https://bus-booking-web-api.herokuapp.com/bookings", {
       credentials: "include",
-      method: "PATCH",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ is_booked: true }),
+      body: JSON.stringify(bookingData),
+    }).then((r) => {
+      if (r.ok) {
+        fetch(`https://bus-booking-web-api.herokuapp.com/seats/${id},`, {
+          credentials: "include",
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            is_booked: true,
+          }),
+        })
+          .then((r) => r.json())
+          .then((bookedSeat) => onBooking(bookedSeat));
+      } else {
+        alert("Booking was not successful please try again.");
+      }
     });
   };
 
@@ -56,6 +80,7 @@ const Seats = ({ seats }) => {
               }}
               className="card text-center mb-2"
               key={seat.id}
+              id={seat.id}
             >
               {seat.seat_no}
             </div>
@@ -75,6 +100,7 @@ const Seats = ({ seats }) => {
               }}
               className="card text-center mb-2"
               key={seat.id}
+              id={seat.id}
             >
               {seat.seat_no}
             </div>
@@ -83,7 +109,7 @@ const Seats = ({ seats }) => {
       </div>
       <div className="d-flex">
         <div>
-          {seats.slice(24, 40).map((seat) => (
+          {seats.slice(24, 36).map((seat) => (
             <div
               onClick={seat.is_booked ? handleAlreadyBooked : handleBook}
               style={{
@@ -97,13 +123,14 @@ const Seats = ({ seats }) => {
               }}
               className="card text-center mb-2"
               key={seat.id}
+              id={seat.id}
             >
               {seat.seat_no}
             </div>
           ))}
         </div>
         <div>
-          {seats.slice(40, seats.length).map((seat) => (
+          {seats.slice(36, 48).map((seat) => (
             <div
               onClick={seat.is_booked ? handleAlreadyBooked : handleBook}
               style={{
@@ -116,6 +143,7 @@ const Seats = ({ seats }) => {
               }}
               className="card text-center mb-2"
               key={seat.id}
+              id={seat.id}
             >
               {seat.seat_no}
             </div>

@@ -25,3 +25,4 @@ const BookNow = ({ price, selected }) => {
 };
 
 export default BookNow;
+

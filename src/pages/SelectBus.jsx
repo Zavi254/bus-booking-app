@@ -11,8 +11,8 @@ const SelectBus = () => {
   const { id } = useParams();
   const [bus, setBus] = useState({});
   const [seats, setSeats] = useState([]);
-  const [price, setPrice] = useState(0)
-  const [selected, setSelected] = useState(0)
+  const [price, setPrice] = useState(0);
+  const [selected, setSelected] = useState(0);
   const iconStyle = {
     fontSize: "2.5rem",
   };
@@ -26,6 +26,22 @@ const SelectBus = () => {
       });
   }, []);
 
+  const handleLogOut = () => {
+    fetch("https://bus-booking-web-api.herokuapp.com/logout", {
+      method: "DELETE"
+    });
+  };
+
+  // console.log(seats);
+
+  const onBooking = (bookedSeat) => {
+    let filtered = seats.filter((seat) => seat.id !== bookedSeat.id);
+    let newState = [...filtered, bookedSeat];
+    setSeats(newState);
+  };
+
+  const totalBus = seats.filter((seat) => seat.is_booked === false);
+
   return (
     <div>
       <Navbar />
@@ -36,7 +52,7 @@ const SelectBus = () => {
         time={bus.travel_time}
         cost={bus.cost_per_seat}
         numberPlate={bus.plate_number}
-        seats={bus.no_of_seats}
+        seats={totalBus.length}
       />
       <div className="d-flex justify-content-between mt-5">
         <div>
@@ -44,6 +60,7 @@ const SelectBus = () => {
           <MdChair style={iconStyle} />
           <MdChair style={iconStyle} />
         </div>
+        <button onClick={handleLogOut}>Logout</button>
         <div>
           <img
             src="https://res.cloudinary.com/dogmqg8to/image/upload/v1667054290/bus%20booking%20Web%20Application/Frame_12_xsjbmc.png"
@@ -52,7 +69,7 @@ const SelectBus = () => {
         </div>
       </div>
       <div>
-        <Seats seats={seats} />
+        <Seats seats={seats} onBooking={onBooking} busId={id} />
       </div>
       <BookNow price={price} selected={selected} />
     </div>
