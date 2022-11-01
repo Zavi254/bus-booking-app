@@ -1,7 +1,11 @@
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { useNavigate } from "react-router-dom";
+import Homepage from "../pages/Homepage";
+import Login from "../pages/Login";
 
 const Seats = ({ seats, onBooking, busId }) => {
+  const navigate = useNavigate();
   const handleClick = (e) => {
     e.preventDefault();
     const seatNo = parseInt(e.target.textContent);
@@ -46,20 +50,25 @@ const Seats = ({ seats, onBooking, busId }) => {
   }
 
   function handleBook(e) {
-    confirmAlert({
-      title: "Confirm booking",
-      message: "Do you wish to book seat?",
-      buttons: [
-        {
-          label: "Book",
-          onClick: () => handleClick(e),
-        },
-        {
-          label: "Exit",
-          onClick: () => null,
-        },
-      ],
-    });
+    if (0 > 1) {
+      confirmAlert({
+        title: "Confirm booking",
+        message: "Do you wish to book seat?",
+        buttons: [
+          {
+            label: "Book",
+            onClick: () => handleClick(e),
+          },
+          {
+            label: "Exit",
+            onClick: () => null,
+          },
+        ],
+      });
+    } else {
+      alert("You need to be logged in first")
+      navigate("/login")
+    }
   }
 
   return (

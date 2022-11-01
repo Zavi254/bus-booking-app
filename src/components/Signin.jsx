@@ -14,13 +14,11 @@ const Signin = ({ showRegister, Login }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const [name, setName] = useState("");
 
   const userLogin = {
     email,
     password,
     role,
-    name,
   };
 
   function handleSubmit(e) {
@@ -32,18 +30,17 @@ const Signin = ({ showRegister, Login }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userLogin),
-    })
-      // .then((r) => {
-      //   if(r.ok) {
-      //     r.json().then((user) => {
+    });
+    // .then((r) => {
+    //   if(r.ok) {
+    //     r.json().then((user) => {
 
-      //     })
-      //   }
-      // })
+    //     })
+    //   }
+    // })
     setEmail("");
     setPassword("");
     setRole("");
-    setName("");
   }
 
   return (
@@ -85,7 +82,6 @@ const Signin = ({ showRegister, Login }) => {
         </select>
       </div>
       <Button
-        onClick={handleSubmit}
         classN="btn btn-danger signRegisterBtn mb-4"
         text="Login"
       />

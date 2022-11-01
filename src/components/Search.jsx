@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalCard from "./ModalCard";
 import { FaBus } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Search = () => {
   const [date, setDate] = useState("");
@@ -82,9 +82,9 @@ const Search = () => {
               </p>
               <p>Departure Time: {bus.travel_time}</p>
               <p>Available Seats: {bus.no_of_seats}</p>
-              <Link id={bus.id} to={`/buses/${bus.id}`} className="bookBtn bg-danger">
+              <NavLink id={bus.id} to={`/buses/${bus.id}`} className="bookBtn bg-danger">
                 View Seats
-              </Link>
+              </NavLink>
             </div>
           ))}
         />
