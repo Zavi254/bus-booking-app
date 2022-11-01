@@ -33,12 +33,13 @@ const Signin = ({ showRegister, Login }) => {
       },
       body: JSON.stringify(userLogin),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        localStorage.setItem("id", data.id);
-        localStorage.setItem("name", data.name);
-        localStorage.setItem("role", data.role);
-      });
+      // .then((r) => {
+      //   if(r.ok) {
+      //     r.json().then((user) => {
+
+      //     })
+      //   }
+      // })
     setEmail("");
     setPassword("");
     setRole("");
