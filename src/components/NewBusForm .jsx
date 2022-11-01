@@ -162,10 +162,13 @@ function NewBusForm ({ handleClose, onAddService, user }) {
     const [driver_id, setDriver_id] = useState("");
     const [plateNumber, setPlateNumber] = useState("");
     const [availablity, setAvailability] = useState("");
-    const [cost, setCost] = useState("");
+    const [cost,setCost] = useState("");
     const [capacity, setCapacity] = useState("");
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
+    const [from, setFrom] = useState("");
+    const [to,setTo] = useState("");
+
 
 
 
@@ -180,6 +183,8 @@ function NewBusForm ({ handleClose, onAddService, user }) {
         capacity: capacity,
         date: date,
         time: time,
+        from: from,
+        to: to,
       
     }
 
@@ -191,7 +196,7 @@ function NewBusForm ({ handleClose, onAddService, user }) {
       body: JSON.stringify(newBus)
     })
     .then((resp) => resp.json())
-    .then((data) => onAddBus(data))
+    .then((data) => NewBusForm(data))
 
     handleClose();
   }
@@ -214,12 +219,12 @@ function NewBusForm ({ handleClose, onAddService, user }) {
           onChange = {(e) => setCapacity(e.target.value)}
         />
         <TextField 
-          label="Fare" 
+          label="Cost" 
           variant="filled" 
-          type="text"
+          type="integer"
           required
-          value={cost_per_seat}
-          onChange = {(e) => setCost_Per_Seat(e.target.value)}
+          value={cost}
+          onChange = {(e) => cost(e.target.value)}
         />
         <TextField 
           label="Point of PickUp" 
