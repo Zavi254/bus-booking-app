@@ -172,7 +172,7 @@ function NewBusForm ({ handleClose, onAddService, user }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newService = {
+    const newBus = {
       driver_id: driver_id,
         plateNumber: plateNumber,
         availability: availablity,
@@ -191,7 +191,7 @@ function NewBusForm ({ handleClose, onAddService, user }) {
       body: JSON.stringify(newBus)
     })
     .then((resp) => resp.json())
-    .then((data) => onAddService(data))
+    .then((data) => onAddBus(data))
 
     handleClose();
   }
@@ -199,58 +199,84 @@ function NewBusForm ({ handleClose, onAddService, user }) {
   return (
       <form className={classes.root} onSubmit={handleSubmit}>
         <TextField 
-          label="Type of service" 
+          label="Plate Number" 
           variant="filled" 
           required
-          value={service}
-          onChange = {(e) => setService(e.target.value)}
+          value={plateNumber}
+          onChange = {(e) => setPlateNumber(e.target.value)}
+        />
+        <TextField 
+          label="Bus Capacity" 
+          variant="filled" 
+          type="integer"
+          required
+          value={capacity}
+          onChange = {(e) => setCapacity(e.target.value)}
+        />
+        <TextField 
+          label="Fare" 
+          variant="filled" 
+          type="text"
+          required
+          value={cost_per_seat}
+          onChange = {(e) => setCost_Per_Seat(e.target.value)}
+        />
+        <TextField 
+          label="Point of PickUp" 
+          variant="filled" 
+          type="from"
+          required
+          value={from}
+          onChange = {(e) => setFrom(e.target.value)}
+        />
+        <TextField 
+          label="Destination" 
+          variant="filled" 
+          type="to"
+          required
+          value={to}
+          onChange = {(e) => setTo(e.target.value)}
         />
 
         <TextField 
-          label="Apartment" 
+          label="Driver" 
           variant="filled" 
           required
-          value={location}
-          onChange = {(e) => setLocation(e.target.value)}
+          value={driver_id}
+          onChange = {(e) => setDriver_id(e.target.value)}
         />
 
+        
+
         <TextField 
-          label="Location" 
+          label="Availablity" 
           variant="filled" 
           type="text" 
           required
-          value={address}
-          onChange = {(e) => setAddress(e.target.value)}
+          value={availablity}
+          onChange = {(e) => setAvailability(e.target.value)}
         />
-
-        <TextField 
-          label="Phone number" 
-          variant="filled" 
-          type="text"
-          required
-          value={contact}
-          onChange = {(e) => setContact(e.target.value)}
-        />
-
-        <TextField 
-          label="Email address" 
-          variant="filled" 
-          type="email"
-          value={user.email}
-        />
-
+        
        <TextField 
-          label="Description of service" 
+          label="Date" 
           variant="filled" 
           type="text"
           required
-          value={description}
-          onChange = {(e) => setDescription(e.target.value)}
+          value={date}
+          onChange = {(e) => setDate(e.target.value)}
         />
-
+         <TextField 
+          label="Time of departure" 
+          variant="filled" 
+          type="time"
+          required
+          value={time}
+          onChange = {(e) => setTime(e.target.value)}
+        />
+        
         <div>
           <Button variant="contained" onClick={handleClose}>Cancel</Button>
-          <Button type="submit" variant="contained">Submit</Button>
+          <Button type="submit" variant="contained">Add Bus</Button>
         </div>
       </form>
   )
