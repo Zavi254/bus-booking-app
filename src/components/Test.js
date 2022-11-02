@@ -6,7 +6,7 @@ import Login from "../pages/Login";
 
 const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
   const navigate = useNavigate();
-  const [login, showLogin] = useState(false);
+  const [login, showLogin] = useState(true);
 
   function compareId(a, b) {
     return a.id - b.id;
