@@ -1,18 +1,32 @@
+import { useState } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { useNavigate, useParams } from "react-router-dom";
+import Login from "../pages/Login";
 
 const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
-  function compareId(a,b){
-    return a.id- b.id
-   }
-   let splitDate = `${bus.travel_date}`.split("-").reverse().join("-")
-   const time = bus.travel_time
-   const zone = `${time}`.slice(0,2) >=12 ? "PM" : "AM"
-   const departureTime = time + zone
-   let columnA = seats.filter((seat) =>seat.seat_no>=1 && seat.seat_no<=12).sort(compareId)
-   let columnB = seats.filter((seat) => seat.seat_no>=13 && seat.seat_no<=24).sort(compareId)
-   let columnC = seats.filter((seat) => seat.seat_no>=25 && seat.seat_no<=36 ).sort(compareId)
-   let columnD = seats.filter((seat) =>seat.seat_no>=37 && seat.seat_no<=48).sort(compareId)
+  const navigate = useNavigate();
+  const [login, showLogin] = useState(false);
+
+  function compareId(a, b) {
+    return a.id - b.id;
+  }
+  let splitDate = `${bus.travel_date}`.split("-").reverse().join("-");
+  const time = bus.travel_time;
+  const zone = `${time}`.slice(0, 2) >= 12 ? "PM" : "AM";
+  const departureTime = time + zone;
+  let columnA = seats
+    .filter((seat) => seat.seat_no >= 1 && seat.seat_no <= 12)
+    .sort(compareId);
+  let columnB = seats
+    .filter((seat) => seat.seat_no >= 13 && seat.seat_no <= 24)
+    .sort(compareId);
+  let columnC = seats
+    .filter((seat) => seat.seat_no >= 25 && seat.seat_no <= 36)
+    .sort(compareId);
+  let columnD = seats
+    .filter((seat) => seat.seat_no >= 37 && seat.seat_no <= 48)
+    .sort(compareId);
   const handleClick = (e) => {
     e.preventDefault();
     const seatNo = parseInt(e.target.textContent);
@@ -45,10 +59,14 @@ const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
           .then((r) => r.json())
           .then((bookedSeat) => onBooking(bookedSeat));
       } else {
-        alert("Booking was not successful please try again.");
+        alert("Booking failed, You may have to login or check your network");
       }
     });
   };
+  function renderLogin(busId) {
+    alert("Booking failed, You may have to login or check your network");
+    navigate("/login");
+  }
 
   function handleAlreadyBooked() {
     alert(
@@ -57,14 +75,14 @@ const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
   }
 
   function handleBook(e) {
-    onClickBook(e.target.textContent)
+    onClickBook(e.target.textContent);
     confirmAlert({
       title: "Confirm booking",
       message: `Do you wish to book seat ${e.target.textContent} at Kshs. ${bus.cost_per_seat}. Travel date: ${splitDate} Departure time:${departureTime} ?`,
       buttons: [
         {
           label: "Book",
-          onClick: () => handleClick(e),
+          onClick: () => (login ? handleClick(e) : renderLogin(bus.id)),
         },
         {
           label: "Exit",
