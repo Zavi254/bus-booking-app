@@ -13,8 +13,9 @@ const Register = ({ showSignin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [telephone, setTelephone] = useState(0);
   const [name, setName] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const user = {
     name,
@@ -23,28 +24,44 @@ const Register = ({ showSignin }) => {
     role,
     telephone,
   };
+  let route = `${role}s`;
+
+  console.log(user);
+  console.log(route);
 
   function handleRegister(e) {
     e.preventDefault();
-    fetch(`https://bus-booking-web-api.herokuapp.com/${role}`, {
+    fetch(`https://bus-booking-web-api.herokuapp.com/${route}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    })
-      .then((r) => r.json())
-      .then((data) => console.log(data));
-    alert(`You have successfully registered your Account ${user.name}`);
-    // if (role === "customers") {
-    //   navigate("/buses")
-    // }
+    }).then((r) => {
+      if (r.ok) {
+        alert(`You have successfully registered your Account ${user.name}`);
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+    setEmail("");
+    setErrors([]);
+    setName("");
+    setPassword("");
+    setRole("");
+    setTelephone("");
   }
+
+  console.log(errors);
+
+  let errorList = errors.map((error) => <p className="text-center text-danger">{error}</p>);
 
   return (
     <form className="form" onSubmit={handleRegister}>
       <h2 className="text-center">Welcome to Bus Booking</h2>
       <p className="text-center">Sign up your account</p>
+      {errors.length > 0 ? errorList : null}
+
       <div className="mb-4">
         <input
           style={inputStyles}
@@ -93,8 +110,8 @@ const Register = ({ showSignin }) => {
           style={inputStyles}
         >
           <option>Enter your role</option>
-          <option value="customers">Customer</option>
-          <option value="drivers">Driver</option>
+          <option value="customer">Customer</option>
+          <option value="driver">Driver</option>
           {/* <option value="admin">Admin</option> */}
         </select>
       </div>
