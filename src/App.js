@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
@@ -13,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Driver />} />
+        <Route path="/" element={<Driver />} />
         <Route path="/" element={<Landingpage />} />
         <Route path="login" element={<Login userLogin={handleLogin} />} />
         <Route path="/buses/:id" element={<SelectBus />} />
