@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState,useEffect} from "react"
-import Customers from './Customers';
+// import Customers from './Customers';
 
 function Drivers() {
   const [drivers, setDrivers]=useState([])

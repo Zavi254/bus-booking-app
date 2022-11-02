@@ -15,7 +15,7 @@ function Customers() {
     console.log(formData)
     
 
-  },[])
+  })
     function handleChange(e){
       
       setFormData({...customer,[e.target.name]:e.target.value})
