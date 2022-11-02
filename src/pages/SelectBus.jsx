@@ -4,16 +4,18 @@ import { MdChair } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import Destination from "../components/Destination";
 import BusDetails from "../components/BusDetails";
-import Seats from "../components/Seats";
+//import Seats from "../components/Seats";
 import BookNow from "../components/BookNow";
+import Test from "../components/Test";
 
 const SelectBus = () => {
   const { id } = useParams();
   const [bus, setBus] = useState({});
-
+  const [reload, setReload] =useState(false)
   const [seats, setSeats] = useState([]);
   const [price, setPrice] = useState(0);
   const [selected, setSelected] = useState(0);
+  const [seat, setSeatNo] = useState()
   const iconStyle = {
     fontSize: "2.5rem",
   };
@@ -25,7 +27,7 @@ const SelectBus = () => {
         setBus(bus);
         setSeats(bus.seats);
       });
-  }, [id]);
+  }, [id,reload]);
 
   const handleLogOut = () => {
     fetch("https://bus-booking-web-api.herokuapp.com/logout", {
@@ -37,10 +39,6 @@ const SelectBus = () => {
   // console.log(seats);
 
   const onBooking = (bookedSeat) => {
-    // let filtered = seats.filter((seat) => seat.id !== bookedSeat.id);
-    // let newState = [...filtered, bookedSeat].sort();
-    // setSeats(newState);
-    // console.log(newState);
     let array = seats.map((seat) => {
       if (seat.id === bookedSeat.id) {
         return bookedSeat;
@@ -49,8 +47,12 @@ const SelectBus = () => {
       }
     });
     setSeats(array);
-    console.log(array);
+    setReload(()=> !reload)
   };
+
+  const onClickBook=(seatNo)=>{
+    setSeatNo(seatNo)
+  }
 
   const totalBus = seats.filter((seat) => seat.is_booked === false);
 
@@ -85,9 +87,10 @@ const SelectBus = () => {
         </div>
       </div>
       <div>
-        <Seats seats={seats} onBooking={onBooking} busId={id} />
+        {/*<Seats seats={seats} onBooking={onBooking} busId={id} />*/}
+        <Test seats={seats} onBooking={onBooking} busId={id} bus={bus} onClickBook={onClickBook}/>
       </div>
-      <BookNow price={price} selected={selected} />
+      <BookNow price={bus.cost_per_seat} seatNo={seat} />
     </div>
   );
 };
