@@ -34,7 +34,7 @@ const Seats = ({ seats, onBooking, busId }) => {
           .then((r) => r.json())
           .then((bookedSeat) => onBooking(bookedSeat));
       } else {
-        alert("Booking was not successful please try again.");
+        alert("Booking was not successful");
       }
     });
   };

@@ -32,15 +32,13 @@ const Register = ({ showSignin }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => console.log(user));
-      }
-    });
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
     alert(`You have successfully registered your Account ${user.name}`);
-    if (role === "customers") {
-      navigate("/buses")
-    }
+    // if (role === "customers") {
+    //   navigate("/buses")
+    // }
   }
 
   return (
