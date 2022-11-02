@@ -7,15 +7,19 @@ import BusDetails from "../components/BusDetails";
 //import Seats from "../components/Seats";
 import BookNow from "../components/BookNow";
 import Test from "../components/Test";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
 const SelectBus = () => {
+  const user = useContext(UserContext);
+  console.log(user);
   const { id } = useParams();
   const [bus, setBus] = useState({});
-  const [reload, setReload] =useState(false)
+  const [reload, setReload] = useState(false);
   const [seats, setSeats] = useState([]);
   const [price, setPrice] = useState(0);
   const [selected, setSelected] = useState(0);
-  const [seat, setSeatNo] = useState()
+  const [seat, setSeatNo] = useState();
   const iconStyle = {
     fontSize: "2.5rem",
   };
@@ -27,7 +31,7 @@ const SelectBus = () => {
         setBus(bus);
         setSeats(bus.seats);
       });
-  }, [id,reload]);
+  }, [id, reload]);
 
   const handleLogOut = () => {
     fetch("https://bus-booking-web-api.herokuapp.com/logout", {
@@ -47,12 +51,12 @@ const SelectBus = () => {
       }
     });
     setSeats(array);
-    setReload(()=> !reload)
+    setReload(() => !reload);
   };
 
-  const onClickBook=(seatNo)=>{
-    setSeatNo(seatNo)
-  }
+  const onClickBook = (seatNo) => {
+    setSeatNo(seatNo);
+  };
 
   const totalBus = seats.filter((seat) => seat.is_booked === false);
 
@@ -88,7 +92,13 @@ const SelectBus = () => {
       </div>
       <div>
         {/*<Seats seats={seats} onBooking={onBooking} busId={id} />*/}
-        <Test seats={seats} onBooking={onBooking} busId={id} bus={bus} onClickBook={onClickBook}/>
+        <Test
+          seats={seats}
+          onBooking={onBooking}
+          busId={id}
+          bus={bus}
+          onClickBook={onClickBook}
+        />
       </div>
       <BookNow price={bus.cost_per_seat} seatNo={seat} />
     </div>
