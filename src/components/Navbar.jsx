@@ -46,6 +46,11 @@ const Navbar = () => {
               ABOUT US
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/mainPage" className="nav-link text-white">
+              Admin
+            </Link>
+          </li>
           <div className="offcanvas-header">
             <button
               className="btn-close btn-close-white close-button"
