@@ -38,13 +38,7 @@ const Signin = ({ showRegister, onLogin }) => {
         onLogin();
       }
     });
-    if (user.role === "customer") {
-      navigate("/home");
-    } else if (user.role === "admin") {
-      navigate("/buses/3");
-    } else if (user.role === "driver") {
-      navigate("/buses/2");
-    }
+    navigate("/home")
     setEmail("");
     setPassword("");
     setRole("");

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Destination from "../components/Destination";
 import BusDetails from "../components/BusDetails";
 //import Seats from "../components/Seats";
-import BookNow from "../components/BookNow";
+//import BookNow from "../components/BookNow";
 import Test from "../components/Test";
 import { useContext } from "react";
 import { UserContext } from "../App";
@@ -38,14 +38,6 @@ const SelectBus = () => {
   const zone = hour >= 12 ? "PM" : "AM";
   const departureTime = hourAmPm + ":" + minutes + zone;
 
-  const handleLogOut = () => {
-    fetch("https://bus-booking-web-api.herokuapp.com/logout", {
-      method: "DELETE",
-    });
-    alert("Logged out");
-  };
-
-  // console.log(seats);
 
   const onBooking = (bookedSeat) => {
     let array = seats.map((seat) => {
@@ -87,7 +79,6 @@ const SelectBus = () => {
           <MdChair style={iconStyle} />
           <MdChair style={iconStyle} />
         </div>
-        <button onClick={handleLogOut}>Logout</button>
         <div>
           <img
             src="https://res.cloudinary.com/dogmqg8to/image/upload/v1667054290/bus%20booking%20Web%20Application/Frame_12_xsjbmc.png"
@@ -105,7 +96,7 @@ const SelectBus = () => {
           onClickBook={onClickBook}
         />
       </div>
-      <BookNow price={bus.cost_per_seat} seatNo={seat} />
+      {/*<BookNow price={bus.cost_per_seat} seatNo={seat} />*/}
     </div>
   );
 };
