@@ -1,7 +1,6 @@
-// import { WarningAmber } from "@mui/icons-material";
-// import { amber, orange } from "@mui/material/colors";
+
 import { useState,useEffect} from "react"
-// import { ReactDOM } from 'react';
+
 
 function Bookings() {
     const [bookings,setBookings]=useState([])

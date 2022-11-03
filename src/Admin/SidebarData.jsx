@@ -18,43 +18,38 @@ export const SidebarData=[
       },
       {
         title: "Dashboard",
-        path: "/dashboard",
+        path: "/mainPage/dashboard",
         icon: <MdIcons.MdDashboard />,
       },
    
       {
         title: "Bookings",
-        path: "/bookings",
+        path: "/mainPage/bookings",
         icon: <FcIcons.FcDepartment />,
       },
       {
         title: "Buses",
-        path: "/buses",
+        path: "/mainPage/buses",
         icon: <MdIcons.MdCategory />,
       },
       {
         title: "Drivers",
-        path: "/drivers",
+        path: "/mainPage/drivers",
         icon: <AiIcons.AiOutlineBars />,
       },
       {
         title: "Customers",
-        path: "/customers",
+        path: "/mainPage/customers",
         icon: <FaIcons.FaUsers />,
       },
       {
         title: "Routes",
-        path: "/routes",
+        path: "/mainPageroutes",
         icon: <MdIcons.MdRequestPage />,
       },
-      // {
-      //   title: "Profile",
-      //   path: "/profile",
-      //   icon: <CgIcons.CgProfile />,
-      // },
       {
         title: "Logout",
-        path: "/logout",
+        path: "/mainPage/logout",
         icon: <MdIcons. MdLogout />,
       },
 ]

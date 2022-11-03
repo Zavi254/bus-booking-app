@@ -2,12 +2,14 @@ import React from 'react';
 import Navbar from './Navbar';
 import NavPage from './NavPage';
 import Sidebar from './Sidebar';
+import './App2.css'
 function MainPage() {
   return (
     <>
       {/* navbar section */}
       <div>
         <Navbar/>
+     
       </div>
       {/* sidebar section */}
       <div className='sidebar-container'>

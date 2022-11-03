@@ -1,12 +1,5 @@
 import React from "react";
-// import Customers from "./Customers";
 
-
-// import Driver from "../Driver/Driver";
-// import Bookings from "./Bookings";
-// import Drivers from "./Drivers";
-// import Buses from "./Buses";
-// import Admin from "./Admin";
 function Dashboard() {
     return (
         <>
