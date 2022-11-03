@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { useNavigate } from "react-router-dom";
 
 const Signin = ({ showRegister, Login }) => {
   const inputStyles = {
@@ -9,7 +8,6 @@ const Signin = ({ showRegister, Login }) => {
     margin: "auto",
   };
 
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,13 +29,6 @@ const Signin = ({ showRegister, Login }) => {
       },
       body: JSON.stringify(userLogin),
     });
-    // .then((r) => {
-    //   if(r.ok) {
-    //     r.json().then((user) => {
-
-    //     })
-    //   }
-    // })
     setEmail("");
     setPassword("");
     setRole("");
@@ -81,10 +72,7 @@ const Signin = ({ showRegister, Login }) => {
           {/* <option value="admin">Admin</option> */}
         </select>
       </div>
-      <Button
-        classN="btn btn-danger signRegisterBtn mb-4"
-        text="Login"
-      />
+      <Button classN="btn btn-danger signRegisterBtn mb-4" text="Login" />
       <p style={{ color: "#ACADAC", textAlign: "center" }}>
         Don't have any Account?
         <span>
