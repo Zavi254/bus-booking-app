@@ -1,12 +1,7 @@
-
-
-
 import * as FaIcons from "react-icons/fa";
 import * as FcIcons from "react-icons/fc";
 import * as MdIcons from "react-icons/md";
 import * as AiIcons from "react-icons/ai";
-// import * as CgIcons from "react-icons/cg";
-// import {BiBus} from "react-icons/tfi";
 
 
 
