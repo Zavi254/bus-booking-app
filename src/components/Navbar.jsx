@@ -3,6 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import {useContext} from "react"
 import { UserContext } from "../App";
+import Dashboard from '../Driver/Driverdash';
 
 
 const Navbar = () => {
@@ -66,8 +67,8 @@ const Navbar = () => {
           }
           {user.id >0 && user.role ==="driver" ?
 
-            <Link to="/viewbus" className="nav-link text-white">
-            View Bus
+            <Link to="/driverDashboard" className="nav-link text-white">
+            Dashboard
             </Link>
             :
             null
