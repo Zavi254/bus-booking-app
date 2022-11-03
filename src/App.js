@@ -7,6 +7,8 @@ import Landingpage from "./pages/Landingpage";
 import SelectBus from "./pages/SelectBus";
 import { useEffect } from "react";
 import { createContext } from "react";
+// import MainPage from "./Admin/MainPage"
+import NavPage from "./Admin/NavPage";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -32,9 +34,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landingpage />} />
-        <Route path="login" element={<Login userLogin={handleLogin} />} />
+        <Route path="login" element={<Login/>} />
         <Route path="/buses/:id" element={<SelectBus />} />
         <Route path="home" element={<Homepage />} />
+        {/* <Route path="mainPage" element={<MainPage />} /> */}
+        <Route path="mainPage" element={<NavPage/>} />
       </Routes>
     </BrowserRouter>
   );
@@ -43,3 +47,38 @@ function App() {
 export default App;
 
 export const UserContext = createContext();
+
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import "./App.css";
+// import Homepage from "./pages/Homepage";
+// import Login from "./pages/Login";
+// import Landingpage from "./pages/Landingpage";
+// import SelectBus from "./pages/SelectBus";
+// import MainPage from "./Admin/MainPage"
+
+
+
+// function App() {
+//   function handleLogin() {
+//     console.log("Hello");
+//   }
+//   return (
+//     <>
+     
+      
+//     <BrowserRouter>
+//       <Routes>
+     
+//         <Route path="/" element={<Landingpage />} />
+//         <Route path="login" element={<Login userLogin={handleLogin} />} />
+//         <Route path="/buses/:id" element={<SelectBus />} />
+//         <Route path="home" element={<Homepage />} />
+//         <Route path="mainPage" element={<MainPage />} />
+//       </Routes>
+//     </BrowserRouter>
+//    {/* <MainPage/> */}
+//     </>
+//   );
+// }
+
+// export default App;
