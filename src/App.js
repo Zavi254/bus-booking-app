@@ -8,7 +8,7 @@ import SelectBus from "./pages/SelectBus";
 import { useEffect } from "react";
 import { createContext } from "react";
 // import MainPage from "./Admin/MainPage"
-import NavPage from "./Admin/NavPage";
+// import NavPage from "./Admin/NavPage";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
