@@ -12,13 +12,11 @@ import { UserContext } from "../App";
 
 const SelectBus = () => {
   const user = useContext(UserContext);
-  console.log(user);
   const { id } = useParams();
   const [bus, setBus] = useState({});
   const [reload, setReload] = useState(false);
   const [seats, setSeats] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [selected, setSelected] = useState(0);
+  const [travel_time, setTime] = useState("");
   const [seat, setSeatNo] = useState();
   const iconStyle = {
     fontSize: "2.5rem",
@@ -30,8 +28,15 @@ const SelectBus = () => {
       .then((bus) => {
         setBus(bus);
         setSeats(bus.seats);
+        setTime(bus.travel_time);
       });
-  }, [id, reload]);
+  }, [id, reload, user]);
+
+  const hour = `${travel_time}`.slice(0, 2);
+  const minutes = `${travel_time}`.slice(-2);
+  const hourAmPm = hour > 12 ? hour - 12 : hour;
+  const zone = hour >= 12 ? "PM" : "AM";
+  const departureTime = hourAmPm + ":" + minutes + zone;
 
   const handleLogOut = () => {
     fetch("https://bus-booking-web-api.herokuapp.com/logout", {
@@ -67,7 +72,7 @@ const SelectBus = () => {
       <BusDetails
         from={bus.from}
         to={bus.to}
-        time={bus.travel_time}
+        time={departureTime}
         cost={bus.cost_per_seat}
         numberPlate={bus.plate_number}
         seats={
@@ -91,10 +96,10 @@ const SelectBus = () => {
         </div>
       </div>
       <div>
-        {/*<Seats seats={seats} onBooking={onBooking} busId={id} />*/}
         <Test
           seats={seats}
           onBooking={onBooking}
+          time={departureTime}
           busId={id}
           bus={bus}
           onClickBook={onClickBook}

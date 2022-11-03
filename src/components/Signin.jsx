@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
+import { useContext } from "react";
 
-const Signin = ({ showRegister, Login }) => {
+const Signin = ({ showRegister, onLogin }) => {
+  const user = useContext(UserContext);
+  console.log(user);
+  const navigate = useNavigate();
   const inputStyles = {
     boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.20)",
     borderRadius: "7px",
     margin: "auto",
   };
-
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +33,18 @@ const Signin = ({ showRegister, Login }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userLogin),
+    }).then((r) => {
+      if (r.ok) {
+        onLogin();
+      }
     });
+    if (user.role === "customer") {
+      navigate("/home");
+    } else if (user.role === "admin") {
+      navigate("/buses/3");
+    } else if (user.role === "driver") {
+      navigate("/buses/2");
+    }
     setEmail("");
     setPassword("");
     setRole("");
@@ -69,7 +85,7 @@ const Signin = ({ showRegister, Login }) => {
           <option>Enter your role</option>
           <option value="customer">Customer</option>
           <option value="driver">Driver</option>
-          {/* <option value="admin">Admin</option> */}
+          <option value="admin">Admin</option>
         </select>
       </div>
       <Button classN="btn btn-danger signRegisterBtn mb-4" text="Login" />

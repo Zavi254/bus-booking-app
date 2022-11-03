@@ -1,9 +1,8 @@
 import Button from "./Button";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Register = ({ showSignin }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const inputStyles = {
     boxShadow: "0px 2px 2px rgba(0, 0, 0, 0.20)",

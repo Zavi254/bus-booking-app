@@ -12,11 +12,11 @@ import NavPage from "./Admin/NavPage";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
-  
-  // function onLogin(user) {
-  //   setCurrentUser(user);
-  // }
-  // console.log(currentUser);
+  const [reload, setReload] = useState(false);
+
+  function onLogin(user) {
+    setReload(() => !reload);
+  }
 
   useEffect(() => {
     fetch("https://bus-booking-web-api.herokuapp.com/me", {
@@ -28,19 +28,19 @@ function App() {
         console.log("There is no user in session");
       }
     });
-  }, []);
+  }, [reload]);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Landingpage />} />
-        <Route path="login" element={<Login/>} />
-        <Route path="/buses/:id" element={<SelectBus />} />
-        <Route path="home" element={<Homepage />} />
-        {/* <Route path="mainPage" element={<MainPage />} /> */}
-        <Route path="mainPage" element={<NavPage/>} />
-      </Routes>
-    </BrowserRouter>
+    <UserContext.Provider value={currentUser}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landingpage />} />
+          <Route path="login" element={<Login onLogin={onLogin} />} />
+          <Route path="/buses/:id" element={<SelectBus />} />
+          <Route path="home" element={<Homepage />} />
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
