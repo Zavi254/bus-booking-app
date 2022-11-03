@@ -13,8 +13,6 @@ const BusDetails = ({ from, to, time, numberPlate, cost, seats }) => {
     color: "#FFA500",
   };
 
-  const zone = `${time}`.slice(0,2) >=12 ? "PM" : "AM"
-   const departureTime = time + zone
 
   return (
     <div
@@ -27,7 +25,7 @@ const BusDetails = ({ from, to, time, numberPlate, cost, seats }) => {
       </div>
       <div className="d-flex flex-column">
         <div style={fontColor}>Departure Time</div>
-        <div>{departureTime}</div>
+        <div>{time}</div>
       </div>
       <div className="d-flex flex-column">
         <div style={fontColor}>Number Plate</div>

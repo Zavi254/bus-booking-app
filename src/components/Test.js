@@ -3,19 +3,18 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useNavigate, useParams } from "react-router-dom";
 import Login from "../pages/Login";
+import { UserContext } from "../App";
+import { useContext } from "react";
 
-const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
+const Test = ({ seats, bus, onBooking, time, busId, onClickBook }) => {
+  const user = useContext(UserContext);
   const navigate = useNavigate();
-  const [login, showLogin] = useState(true);
 
   function compareId(a, b) {
     return a.id - b.id;
   }
   let splitDate = `${bus.travel_date}`.split("-").reverse().join("-");
-  const time = bus.travel_time;
-  const zone = `${time}`.slice(0, 2) >= 12 ? "PM" : "AM";
-  const departureTime = time + zone;
-  let columnA = seats
+    let columnA = seats
     .filter((seat) => seat.seat_no >= 1 && seat.seat_no <= 12)
     .sort(compareId);
   let columnB = seats
@@ -63,7 +62,7 @@ const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
       }
     });
   };
-  function renderLogin(busId) {
+  function renderLogin() {
     alert("Booking failed, You may have to login or check your network");
     navigate("/login");
   }
@@ -78,11 +77,11 @@ const Test = ({ seats, bus, onBooking, busId, onClickBook }) => {
     onClickBook(e.target.textContent);
     confirmAlert({
       title: "Confirm booking",
-      message: `Do you wish to book seat ${e.target.textContent} at Kshs. ${bus.cost_per_seat}. Travel date: ${splitDate} Departure time:${departureTime} ?`,
+      message: `Do you wish to book seat ${e.target.textContent} at Kshs. ${bus.cost_per_seat}. Travel date: ${splitDate} Departure time:${time} ?`,
       buttons: [
         {
           label: "Book",
-          onClick: () => (login ? handleClick(e) : renderLogin(bus.id)),
+          onClick: () => (user.id > 0 ? handleClick(e) : renderLogin()),
         },
         {
           label: "Exit",

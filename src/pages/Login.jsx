@@ -2,16 +2,9 @@ import { useState } from "react";
 import Register from "../components/Register";
 import Signin from "../components/Signin";
 
-const Login = ({ userLogin, login }) => {
+const Login = ({ userLogin, login, onLogin }) => {
   const [show, setShow] = useState(true);
 
-  // useEffect(() => {
-  //   fetch("https://bus-booking-web-api.herokuapp.com/me").then((response) => {
-  //     if (response.ok) {
-  //       response.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
 
   const showSignin = () => {
     setShow(true);
@@ -35,7 +28,7 @@ const Login = ({ userLogin, login }) => {
 
       <div className="row flex-fill">
         {show ? (
-          <Signin showRegister={showRegister} Login={userLogin} />
+          <Signin onLogin={onLogin} showRegister={showRegister} Login={userLogin} />
         ) : (
           <Register showSignin={showSignin} />
         )}

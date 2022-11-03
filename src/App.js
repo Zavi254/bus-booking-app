@@ -10,11 +10,11 @@ import { createContext } from "react";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
-  
-  // function onLogin(user) {
-  //   setCurrentUser(user);
-  // }
-  // console.log(currentUser);
+  const [reload, setReload] = useState(false);
+
+  function onLogin(user) {
+    setReload(() => !reload);
+  }
 
   useEffect(() => {
     fetch("https://bus-booking-web-api.herokuapp.com/me", {
@@ -26,14 +26,14 @@ function App() {
         console.log("There is no user in session");
       }
     });
-  }, []);
+  }, [reload]);
 
   return (
     <UserContext.Provider value={currentUser}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Landingpage />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<Login onLogin={onLogin} />} />
           <Route path="/buses/:id" element={<SelectBus />} />
           <Route path="home" element={<Homepage />} />
         </Routes>
