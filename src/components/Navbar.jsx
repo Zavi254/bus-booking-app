@@ -1,8 +1,20 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import {useContext} from "react"
+import { UserContext } from "../App";
+
 
 const Navbar = () => {
+  const user = useContext(UserContext)
+
+  const handleLogOut = () => {
+    fetch("https://bus-booking-web-api.herokuapp.com/logout", {
+      credentials:"include",
+      method: "DELETE",
+    });
+
+  };
   return (
     <nav
       className="navbar navbar-expand-sm justify-content-between fixed-top"
@@ -37,15 +49,42 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
+          {user.id > 0 && user.role==="customer"? 
+            <Link to="/mybookings" className="nav-link text-white">
+              BOOKINGS
+            </Link>
+            :
+            null
+          }
+
+          {user.id > 0 && user.role==="admin"? 
+            <Link to="/mainPage" className="nav-link text-white">
+              Dashboard
+            </Link>
+            :
+            null
+          }
+          {user.id >0 && user.role ==="driver" ?
+
+            <Link to="/viewbus" className="nav-link text-white">
+            View Bus
+            </Link>
+            :
+            null
+          }
+
+          </li>
+          <li className="nav-item">
+            {user.id > 0? <Link to="/login" className="nav-link text-white" onClick={handleLogOut}>
+              LOGOUT
+            </Link>
+            :
             <Link to="/login" className="nav-link text-white">
               LOGIN
             </Link>
+            }
           </li>
-          <li className="nav-item">
-            <Link to="/home/about" className="nav-link text-white">
-              ABOUT US
-            </Link>
-          </li>
+          
           <div className="offcanvas-header">
             <button
               className="btn-close btn-close-white close-button"

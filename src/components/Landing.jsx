@@ -21,7 +21,7 @@ const Landing = ({ Link }) => {
 
         <p className="motto">
           Safe,comfortable and Dignified Travel{" "}
-          <p className="mottoNav">Safiri popote kwa ustarabu</p>
+          <span className="mottoNav">Safiri popote kwa ustarabu</span>
         </p>
         <div>
           <button className="start" component={Link} to="./pages/Homepage">
