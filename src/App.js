@@ -12,7 +12,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [reload, setReload] = useState(false);
 
-  function onLogin(user) {
+  function onLogin() {
     setReload(() => !reload);
   }
 
@@ -32,7 +32,7 @@ function App() {
     <UserContext.Provider value={currentUser}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landingpage />} />
+          <Route path="/" element={<Landingpage onLogin={onLogin}/>} />
           <Route path="login" element={<Login onLogin={onLogin} />} />
           <Route path="/buses/:id" element={<SelectBus />} />
           <Route path="home" element={<Homepage />} />
