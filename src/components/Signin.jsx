@@ -24,6 +24,10 @@ const Signin = ({ showRegister, onLogin }) => {
     role,
   };
 
+  const formStyle = {
+    marginTop:"120px"
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("https://bus-booking-web-api.herokuapp.com/login", {
@@ -46,7 +50,7 @@ const Signin = ({ showRegister, onLogin }) => {
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" style={formStyle} onSubmit={handleSubmit}>
       <h2 className="text-center">Welcome to Bus Booking</h2>
       <p className="text-center">Sign in to your account</p>
       <div className="mb-4">
