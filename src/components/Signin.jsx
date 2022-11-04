@@ -36,9 +36,10 @@ const Signin = ({ showRegister, onLogin }) => {
     }).then((r) => {
       if (r.ok) {
         onLogin();
+        navigate("/home")
       }
     });
-    navigate("/home")
+    
     setEmail("");
     setPassword("");
     setRole("");
