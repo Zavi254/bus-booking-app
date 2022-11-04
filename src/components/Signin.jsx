@@ -25,8 +25,8 @@ const Signin = ({ showRegister, onLogin }) => {
   };
 
   const formStyle = {
-    marginTop:"120px"
-  }
+    marginTop: "120px",
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,10 +40,12 @@ const Signin = ({ showRegister, onLogin }) => {
     }).then((r) => {
       if (r.ok) {
         onLogin();
-        navigate("/home")
+        navigate("/home");
+      } else {
+        alert("User does not exist!");
       }
     });
-    
+
     setEmail("");
     setPassword("");
     setRole("");
