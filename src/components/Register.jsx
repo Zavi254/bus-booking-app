@@ -56,7 +56,7 @@ const Register = ({ showSignin }) => {
   let errorList = errors.map((error) => <p className="text-center text-danger">{error}</p>);
 
   return (
-    <form className="form" onSubmit={handleRegister}>
+    <form className="form mt-5" onSubmit={handleRegister}>
       <h2 className="text-center">Welcome to Bus Booking</h2>
       <p className="text-center">Sign up your account</p>
       {errors.length > 0 ? errorList : null}
