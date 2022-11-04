@@ -1,7 +1,7 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 
-const Landing = ({ Link }) => {
+const Landing = () => {
   return (
     <>
       <div className="LandingParent">
@@ -24,9 +24,9 @@ const Landing = ({ Link }) => {
           <span className="mottoNav">Safiri popote kwa ustarabu</span>
         </p>
         <div>
-          <button className="start" component={Link} to="./pages/Homepage">
+          <Link className="start btn btn-danger" to="/home">
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </>
