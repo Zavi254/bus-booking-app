@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow:scroll;
 }
 .nav-bar {
     height: 60px;
@@ -25,6 +26,7 @@ body {
 .sidebar-container {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    overflow:auto
 }
 .side-bar {
     height: 100vh;
@@ -43,6 +45,7 @@ body {
     flex-direction: row;
     color: white;
     align-items: center;
+    
 }
 .sidebar-list .row:hover {
     cursor: pointer;

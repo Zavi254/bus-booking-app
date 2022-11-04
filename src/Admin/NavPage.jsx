@@ -14,7 +14,7 @@ function NavPage() {
        
             <Routes>
                 
-                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/*" element={<Dashboard/>}/>
                 <Route  path="/customers" element={<Customers/>}/>
                 <Route  path="/drivers" element={<Drivers/>}/>
                 <Route  path="/bookings" element={<Bookings/>}/>

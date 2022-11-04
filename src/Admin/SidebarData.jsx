@@ -36,17 +36,17 @@ export const SidebarData=[
         title: "Customers",
         path: "/mainPage/customers",
         icon: <FaIcons.FaUsers />,
-      },
-      {
-        title: "Routes",
-        path: "/mainPageroutes",
-        icon: <MdIcons.MdRequestPage />,
-      },
-      {
-        title: "Logout",
-        path: "/mainPage/logout",
-        icon: <MdIcons. MdLogout />,
-      },
+      }
+      // {
+      //   title: "Routes",
+      //   path: "/mainPageroutes",
+      //   icon: <MdIcons.MdRequestPage />,
+      // },
+      // {
+      //   title: "Logout",
+      //   path: "/mainPage/logout",
+      //   icon: <MdIcons. MdLogout />,
+      // },
 ]
 
 
