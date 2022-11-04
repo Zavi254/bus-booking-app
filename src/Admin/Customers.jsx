@@ -47,7 +47,7 @@ function Customers() {
     <div>
       {!showForm?
       <>
-      <h1>Total Customers</h1>
+      <h1><span className="badge text-bg-primary">Total Customers</span></h1> 
       <table className="table table-bordered table-dark table table-hover">
         <thead>
         <tr>

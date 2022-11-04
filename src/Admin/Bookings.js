@@ -18,7 +18,7 @@ function Bookings() {
 	 }
   return (
     <div>
-      welcome To Bookings
+     <h1><span className="badge text-bg-primary">Welcome To Bookings</span></h1> 
       <div>
         <table className="table table-bordered table-dark table table-hover">
           <thead>

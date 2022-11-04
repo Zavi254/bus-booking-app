@@ -12,7 +12,7 @@ function Buses() {
  
   return (
     <div>
-        <h1>Total Buses</h1>
+        <h1><span className="badge text-bg-primary">Total Buses</span></h1> 
         <table className='table table-bordered table-dark table table-hover'>
 <thead>
 					<tr>

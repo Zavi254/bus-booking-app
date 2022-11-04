@@ -18,7 +18,7 @@ function Drivers() {
   
   return (
     <div>
-       <div><h1>Total Drivers</h1></div>
+	   <h1><span className="badge text-bg-primary">Total Drivers</span></h1> 
        <table className='table table-bordered table-dark table table-hover'>
 <thead>
 					<tr>
