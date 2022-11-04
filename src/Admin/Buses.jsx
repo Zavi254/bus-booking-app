@@ -30,7 +30,7 @@ function Buses() {
             <th>Travel Date</th>
             <th>Available</th>
             <th>Capacity</th>
-            <th>Edit Details</th>
+            {/* <th>Edit Details</th> */}
 						
 						
 					</tr>
@@ -52,7 +52,7 @@ function Buses() {
              <td>{bus.travel_date}</td>
              <td>{bus.available?"Yes":"No"}</td>
              <td>{bus.seats.length}</td>
-             <td style={{ color: "pink" }}>Edit</td>
+             {/* <td style={{ color: "pink" }}>Edit</td> */}
              
             
              

@@ -32,8 +32,8 @@ function Bookings() {
               <th>Name</th>
               <th>Phone Number</th>
               <th>Email</th>
-              <th>Bus</th>
-              <th>Edit Details</th>
+              {/* <th>Bus</th> */}
+              {/* <th>Edit Details</th> */}
             </tr>
           </thead>
           <tbody>
@@ -53,8 +53,8 @@ function Bookings() {
                 <td>{booking.customer.name}</td>
                 <td>{booking.customer.phone_number}</td>
                 <td>{booking.customer.email}</td>
-                <td>{booking.customer.bus}</td>
-                <td  onClick={handleClick}style={{ color: "pink" }}>Edit</td>
+                {/* <td>{booking.customer.bus}</td> */}
+                {/* <td  onClick={handleClick}style={{ color: "pink" }}>Edit</td> */}
               </tr>
             ))}
           </tbody>

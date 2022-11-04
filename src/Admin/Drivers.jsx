@@ -31,7 +31,7 @@ function Drivers() {
 						<th>Name</th>
             <th>Email</th>
             <th>Phone Number</th>
-            <th>Edit Details</th>
+            {/* <th>Edit Details</th> */}
 						</tr>
 				</thead>
 				<tbody>
@@ -46,7 +46,7 @@ function Drivers() {
 						<td>{driver.name}</td>
 						<td>{driver.email}</td>
             <td>{driver.phone_number}</td>
-            <td style={{color: "green"}}>Edit</td>
+            {/* <td style={{color: "green"}}>Edit</td> */}
              {/* <td>{bus.plate_number}</td> */}
 					</tr>
 				))}
