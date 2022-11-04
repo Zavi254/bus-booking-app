@@ -11,16 +11,16 @@ function Bookings() {
         .then((bookings)=>setBookings(bookings))
     },[]);
      console.log(bookings)
-	 function handleClick (e){
-		alert(e.target.id)
-		setId(id)
+	//  function handleClick (e){
+	// 	alert(e.target.id)
+	// 	setId(id)
 
-	 }
+	//  }
   return (
     <div>
-     <h1><span className="badge text-bg-primary">Welcome To Bookings</span></h1> 
-      <div>
-        <table className="table table-bordered table-dark table table-hover">
+      <h1><span className="badge text-bg-primary">Total Bookings</span></h1> 
+      <div id="table1" >
+        <table className="table table-bordered table-dark table table-hover " >
           <thead>
             <tr>
               <th>

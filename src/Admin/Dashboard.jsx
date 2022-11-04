@@ -6,13 +6,13 @@ function Dashboard() {
             <div className="container mt-4 ">
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col">
-                        <div className="card h-100" style={{backgroundColor:"#07D2FF"}}>
+                        <div className="card h-100" style={{backgroundColor:"orange"}}>
                             {/* <img src="..." className="card-img-top" alt="..." /> */}
                             <div className="card-body">
                                 {/* <h5 className="card-title">0</h5> */}
                                 <p className="card-text">Total Bookings</p>
                             </div>
-                            <a href="/bookings" className="small-box-footer" style={{textDecoration: 'none', color:'white'}}>More<i className="bi bi-arrow-right-circle-fill" /></a>
+                            <a href="bookings" className="small-box-footer" style={{textDecoration: 'none', color:'white'}}>More<i className="bi bi-arrow-right-circle-fill" /></a>
                         </div>
                     </div>
                     <div className="col">
