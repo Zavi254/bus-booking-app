@@ -6,7 +6,7 @@ function Dashboard() {
             <div className="container mt-4 ">
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     <div className="col">
-                        <div className="card h-100" style={{backgroundColor:"orange"}}>
+                        <div className="card h-100" style={{backgroundColor:"yellow"}}>
                             {/* <img src="..." className="card-img-top" alt="..." /> */}
                             <div className="card-body">
                                 {/* <h5 className="card-title">0</h5> */}
@@ -26,7 +26,7 @@ function Dashboard() {
                         </div>
                     </div>
                     <div className="col">
-                        <div className="card h-100 " style={{backgroundColor:"#FFC01D"}}>
+                        <div className="card h-100 " style={{backgroundColor:"blue"}}>
                             {/* <img src="..." className="card-img-top" alt="..." /> */}
                             <div className="card-body">
                                 {/* <h5 className="card-title">0</h5> */}
